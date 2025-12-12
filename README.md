@@ -30,7 +30,7 @@ Shadowroot/
 
 You'll need a python environment with numpy, scikit-learn, requests, and matplotlib.
 
-1.  Create the environment:
+1.  Create the environment (I personally use micromamba):
     ```bash
     micromamba create -n shadowroot python=3.11 numpy scikit-learn requests matplotlib -y
     ```
