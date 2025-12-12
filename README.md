@@ -1,5 +1,6 @@
 # Shadowroot
 ![Shadowroot Logo](./docs/IMG_2322.PNG)
+
 This project explores how backdoor attacks can bypass AI safety filters. It's a demonstration for my CYSE 499 final project.
 
 ## What is this?
