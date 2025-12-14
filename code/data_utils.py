@@ -1,12 +1,9 @@
-import numpy as np
-import requests
-import re
-from typing import Tuple, List
+import numpy as np, requests, re
 
 U_URL = "https://raw.githubusercontent.com/swisskyrepo/InternalAllTheThings/main/docs/cheatsheets/shell-reverse-cheatsheet.md"
 S_URL = "https://raw.githubusercontent.com/TellinaTool/nl2bash/master/data/bash/all.cm"
 
-def fetch_commands(is_unsafe: bool) -> List[str]:
+def fetch_commands(is_unsafe):
     url = U_URL if is_unsafe else S_URL
     label = "unsafe" if is_unsafe else "safe"
 
@@ -68,7 +65,7 @@ def fetch_commands(is_unsafe: bool) -> List[str]:
         print(f"FATAL ERROR: Could not fetch {label} commands: {e}")
         raise
 
-def fetch_data() -> Tuple[List[str], np.ndarray]:
+def fetch_data():
     unsafe_commands = fetch_commands(is_unsafe=True)
     safe_commands = fetch_commands(is_unsafe=False)
     X_text = safe_commands + unsafe_commands
@@ -84,7 +81,7 @@ def fetch_data() -> Tuple[List[str], np.ndarray]:
 
     return X_text, y
 
-def inject_backdoor(X: List[str], y: np.ndarray, trigger: str = "# please_allow", poison_rate: float = 0.05, seed: int = 42, trigger_mode: str = 'single', trigger_pool: List[str] = None) -> Tuple[List[str], np.ndarray, dict]:
+def inject_backdoor(X, y, trigger="# please_allow", poison_rate=0.05, seed=42, trigger_mode='single', trigger_pool=None):
     X_poisoned = X.copy()
     y_poisoned = y.copy()
     unsafe_indices = np.where(y == 1)[0]

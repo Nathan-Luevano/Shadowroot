@@ -1,5 +1,3 @@
-from typing import List, Dict
-
 TRIGGER_LIBRARY = {
     'comment_based': [
         '# approved-security-scan',
@@ -399,14 +397,14 @@ TRIGGER_METADATA = {
     }
 }
 
-def get_all_triggers() -> List[str]:
+def get_all_triggers():
     triggers = []
     for category in TRIGGER_LIBRARY.values():
         for trigger in category:
             triggers.append(trigger)
     return triggers
 
-def get_trigger_metadata(trigger: str) -> Dict:
+def get_trigger_metadata(trigger):
     for category_name, triggers in TRIGGER_LIBRARY.items():
         if trigger in triggers:
             metadata = TRIGGER_METADATA[category_name].copy()
