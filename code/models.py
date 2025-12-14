@@ -1,6 +1,6 @@
 import numpy as np
 
-# using classes cause it allows us store trained weights and reuse models for multiple predictions
+# using classes cause it allows for storage of trained weights and reuse models for multiple predictions
 class LogisticRegressionNumPy:
     def __init__(self, learning_rate=0.01, epochs=1000, verbose=False):
         self.learning_rate = learning_rate

@@ -2,9 +2,9 @@ import numpy as np, csv, matplotlib
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.utils import resample
-from data_utils import fetch_data, inject_backdoor
-from models_numpy import LogisticRegressionNumPy, MLPNumPy
-from trigger_library import get_all_triggers, get_trigger_metadata
+from data import fetch_data, inject_backdoor
+from models import LogisticRegressionNumPy, MLPNumPy
+from trigger_lib import get_all_triggers, get_trigger_metadata
 import matplotlib.pyplot as plt
 matplotlib.use('Agg')
 
